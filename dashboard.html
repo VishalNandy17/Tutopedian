@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguaBloom Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF5F7;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out forwards;
+        }
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .heart {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 105, 180, 0.3);
+            transform: rotate(45deg);
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 105, 180, 0.3);
+        }
+        .heart::before {
+            left: -5px;
+        }
+        .heart::after {
+            top: -5px;
+        }
+        .mobile-menu-btn {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-50 to-purple-50">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="sidebar fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-md overflow-y-auto transition-transform duration-300 ease-in-out transform -translate-x-full md:translate-x-0">
+            <div class="p-6 flex items-center space-x-2">
+                <img src="https://placekitten.com/40/40" alt="LinguaBloom Logo" class="w-10 h-10 rounded-full">
+                <h1 class="text-2xl font-bold text-pink-600">LinguaBloom</h1>
+            </div>
+            <nav class="mt-6">
+                <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fas fa-home mr-2"></i> Dashboard
+                </a>
+                <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fas fa-seedling mr-2"></i> My Garden
+                </a>
+                <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fas fa-calendar-alt mr-2"></i> Bloom Schedule
+                </a>
+                <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fas fa-users mr-2"></i> Blossom Community
+                </a>
+                <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fas fa-cog mr-2"></i> Settings
+                </a>
+            </nav>
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-pink-100">
+                <div class="flex items-center space-x-2">
+                    <img src="https://placekitten.com/32/32" alt="User Avatar" class="w-8 h-8 rounded-full">
+                    <span class="text-sm font-medium text-gray-700">Sarah Bloom</span>
+                </div>
+            </div>
+            <!-- Decorative elements -->
+            <div class="heart absolute top-20 right-4 animate-float"></div>
+            <div class="heart absolute bottom-40 left-4 animate-float" style="animation-delay: 1s;"></div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto md:ml-64">
+            <header class="bg-white shadow-sm">
+                <div class="max-w-7xl mx-auto py-4 px-6 flex justify-between items-center">
+                    <button class="mobile-menu-btn text-gray-500 focus:outline-none md:hidden" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <h1 class="text-2xl md:text-3xl font-semibold text-gray-800">Welcome, Sarah!</h1>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-gray-600 hidden md:inline">Current bloom: Spanish</span>
+                        <img class="h-10 w-10 rounded-full border-2 border-pink-300" src="https://placekitten.com/100/100" alt="User avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="max-w-7xl mx-auto py-6 px-6">
+                <!-- Progress Overview -->
+                <div class="bg-white overflow-hidden shadow-lg rounded-2xl mb-8 animate-fade-in-up">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Your Blooming Progress</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-gradient-to-br from-pink-100 to-pink-200 p-6 rounded-xl shadow-md">
+                                <h3 class="text-lg font-semibold text-pink-800 mb-3">Vocabulary Garden</h3>
+                                <div class="flex justify-between items-center">
+                                    <div class="text-3xl font-bold text-pink-600">75%</div>
+                                    <div class="w-2/3 bg-pink-300 rounded-full h-4">
+                                        <div class="bg-pink-500 h-4 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <p class="mt-2 text-sm text-pink-700">750 words learned</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-100 to-purple-200 p-6 rounded-xl shadow-md">
+                                <h3 class="text-lg font-semibold text-purple-800 mb-3">Grammar Grove</h3>
+                                <div class="flex justify-between items-center">
+                                    <div class="text-3xl font-bold text-purple-600">60%</div>
+                                    <div class="w-2/3 bg-purple-300 rounded-full h-4">
+                                        <div class="bg-purple-500 h-4 rounded-full" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                                <p class="mt-2 text-sm text-purple-700">12 rules mastered</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-100 to-green-200 p-6 rounded-xl shadow-md">
+                                <h3 class="text-lg font-semibold text-green-800 mb-3">Speaking Meadow</h3>
+                                <div class="flex justify-between items-center">
+                                    <div class="text-3xl font-bold text-green-600">40%</div>
+                                    <div class="w-2/3 bg-green-300 rounded-full h-4">
+                                        <div class="bg-green-500 h-4 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                                <p class="mt-2 text-sm text-green-700">2 hours of practice</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Virtual Exercise Board -->
+                <div class="bg-white overflow-hidden shadow-lg rounded-2xl mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Blossom Board: Daily Exercises</h2>
+                        <div class="bg-gradient-to-r from-yellow-100 to-orange-100 p-6 rounded-xl shadow-inner">
+                            <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                                <h3 class="text-xl font-semibold text-orange-800 mb-4 md:mb-0">Today's Bloom: Verb Conjugation</h3>
+                                <button class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition-colors duration-300 transform hover:scale-105">
+                                    <i class="fas fa-play mr-2"></i> Start Blooming
+                                </button>
+                            </div>
+                            <p class="text-orange-700 mb-6">Nurture your Spanish verbs in different tenses and watch them flourish!</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white p-6 rounded-xl shadow-md">
+                                    <h4 class="font-semibold text-gray-700 mb-3">Verb: Florecer (to bloom)</h4>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li>Yo _____ (present)</li>
+                                        <li>Tú _____ (preterite)</li>
+                                        <li>Él/Ella _____ (imperfect)</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl shadow-md">
+                                    <h4 class="font-semibold text-gray-700 mb-3">Verb: Cultivar (to cultivate)</h4>
+                                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                        <li>Nosotros _____ (present)</li>
+                                        <li>Vosotros _____ (future)</li>
+                                        <li>Ellos/Ellas _____ (conditional)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language Resources -->
+                <div class="bg-white overflow-hidden shadow-lg rounded-2xl animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Your Language Garden Tools</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <a href="#" class="block p-6 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-xl hover:shadow-md transition-all duration-300 transform hover:scale-105">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-book text-2xl text-yellow-600 mr-3"></i>
+                                    <h3 class="text-lg font-semibold text-yellow-800">Petal Dictionary</h3>
+                                </div>
+                                <p class="text-yellow-700">Uncover the meaning of new words and phrases</p>
+                            </a>
+                            <a href="#" class="block p-6 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl hover:shadow-md transition-all duration-300 transform hover:scale-105">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-seedling text-2xl text-purple-600 mr-3"></i>
+                                    <h3 class="text-lg font-semibold text-purple-800">Grammar Greenhouse</h3>
+                                </div>
+                                <p class="text-purple-700">Nurture your understanding of Spanish grammar</p>
+                            </a>
+                            <a href="#" class="block p-6 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl hover:shadow-md transition-all duration-300 transform hover:scale-105">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-microphone-alt text-2xl text-blue-600 mr-3"></i>
+                                    <h3 class="text-lg font-semibold text-blue-800">Pronunciation Pond</h3>
+                                </div>
+                                <p class="text-blue-700">Polish your accent and speak with confidence</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const sidebar = document.querySelector('.sidebar');
+
+            mobileMenuBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+            });
+
+            // Close sidebar when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!sidebar.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                    sidebar.classList.remove('open');
+                }
+            });
+
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('.bg-pink-500, .bg-purple-500, .bg-green-500');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.transition = 'width 1s ease-in-out';
+                    bar.style.width = width;
+                }, 300);
+            });
+
+            // Add hover effect to resource cards
+            const resourceCards = document.querySelectorAll('.bg-gradient-to-br');
+            resourceCards.forEach(card => {
+                card.addEventListener('mouseover', () => {
+                    card.classList.add('shadow-lg', 'scale-105');
+                });
+                card.addEventListener('mouseout', () => {
+                    card.classList.remove('shadow-lg', 'scale-105');
+                });
+            });
+
+            // Simulate loading new content
+            const startBloomingBtn = document.querySelector('.bg-pink-500');
+            startBloomingBtn.addEventListener('click', () => {
+                startBloomingBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Loading...';
+                setTimeout(() => {
+                    startBloomingBtn.innerHTML = '<i class="fas fa-check mr-2"></i> Started!';
+                    startBloomingBtn.classList.remove('bg-pink-500', 'hover:bg-pink-600');
+                    startBloomingBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                }, 2000);
+            });
+
+            // Add floating hearts animation
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('heart', 'animate-float');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+
+            setInterval(createHeart, 300);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguaBloom Advanced Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF5F7;
+            color: #4A4A4A;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .sidebar {
+            background: linear-gradient(to bottom, #FFF5F7, #FFE4E1);
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .custom-shape-divider-bottom-1689811821 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .custom-shape-divider-bottom-1689811821 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        .custom-shape-divider-bottom-1689811821 .shape-fill {
+            fill: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-rose-50 to-purple-50">
+    <div class="flex h-screen">
+        <!-- Sidebar (unchanged) -->
+        <aside class="sidebar fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-md overflow-y-auto transition-transform duration-300 ease-in-out transform -translate-x-full md:translate-x-0">
+            <div class="p-6 flex items-center space-x-2">
+                <img src="https://placekitten.com/40/40" alt="LinguaBloom Logo" class="w-10 h-10 rounded-full">
+                <h1 class="text-2xl font-bold text-pink-600">LinguaBloom</h1>
+            </div>
+            <nav class="mt-6">
+                <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fas fa-home mr-2"></i> Dashboard
+                </a>
+                <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fas fa-seedling mr-2"></i> My Garden
+                </a>
+                <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fas fa-calendar-alt mr-2"></i> Bloom Schedule
+                </a>
+                <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fas fa-users mr-2"></i> Blossom Community
+                </a>
+                <a href="#" class="block py-3 px-6 text-gray-700 hover:bg-pink-100 hover:text-pink-500 transition-colors duration-300">
+                    <i class="fas fa-cog mr-2"></i> Settings
+                </a>
+            </nav>
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-pink-100">
+                <div class="flex items-center space-x-2">
+                    <img src="https://placekitten.com/32/32" alt="User Avatar" class="w-8 h-8 rounded-full">
+                    <span class="text-sm font-medium text-gray-700">Sarah Bloom</span>
+                </div>
+            </div>
+            <!-- Decorative elements -->
+            <div class="heart absolute top-20 right-4 animate-float"></div>
+            <div class="heart absolute bottom-40 left-4 animate-float" style="animation-delay: 1s;"></div>
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto md:ml-64 p-8">
+            <header class="mb-12">
+                <h1 class="text-4xl font-bold text-rose-800 mb-2">Welcome back, Sarah!</h1>
+                <p class="text-lg text-gray-600">Let's nurture your language garden today.</p>
+            </header>
+
+            <!-- Progress Overview -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-semibold text-rose-800 mb-8">Your Blooming Progress</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="progress-card bg-white rounded-2xl shadow-lg p-6 relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold text-rose-700">Vocabulary Garden</h3>
+                            <div class="w-20 h-20">
+                                <svg class="progress-ring" width="80" height="80">
+                                    <circle class="progress-ring-circle" stroke="#FEC5E5" stroke-width="8" fill="transparent" r="34" cx="40" cy="40"/>
+                                    <circle class="progress-ring-circle" stroke="#FF69B4" stroke-width="8" fill="transparent" r="34" cx="40" cy="40" stroke-dasharray="213.52" stroke-dashoffset="53.38"/>
+                                </svg>
+                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg font-bold text-rose-700">75%</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">750 words learned</p>
+                        <div class="custom-shape-divider-bottom-1689811821">
+                            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill" fill="#FFF5F7" fill-opacity="0.3"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Repeat similar structure for Grammar Grove and Speaking Meadow -->
+                </div>
+            </section>
+
+            <!-- Daily Challenge -->
+            <section class="mb-16 bg-white rounded-2xl shadow-lg p-8 relative overflow-hidden">
+                <h2 class="text-3xl font-semibold text-rose-800 mb-6">Today's Bloom Challenge</h2>
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-6 md:mb-0 md:mr-8">
+                        <h3 class="text-2xl font-semibold text-rose-700 mb-4">Verb Conjugation: Florecer (to bloom)</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-3">
+                            <li>Yo _____ (present)</li>
+                            <li>Tú _____ (preterite)</li>
+                            <li>Él/Ella _____ (imperfect)</li>
+                        </ul>
+                    </div>
+                    <button class="bg-rose-500 text-white px-8 py-3 rounded-full hover:bg-rose-600 transition-colors duration-300 transform hover:scale-105 text-lg shadow-md">
+                        Start Challenge
+                    </button>
+                </div>
+                <img src="https://via.placeholder.com/200" alt="Decorative flower" class="absolute -bottom-10 -right-10 opacity-10">
+            </section>
+
+            <!-- Language Resources -->
+            <section>
+                <h2 class="text-3xl font-semibold text-rose-800 mb-8">Your Language Garden Tools</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <a href="#" class="resource-card bg-white rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:translate-y--2">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-book text-3xl text-rose-500 mr-4"></i>
+                            <h3 class="text-xl font-semibold text-rose-700">Petal Dictionary</h3>
+                        </div>
+                        <p class="text-gray-600">Uncover the meaning of new words and phrases</p>
+                    </a>
+                    <!-- Repeat similar structure for Grammar Greenhouse and Pronunciation Pond -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // GSAP animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate progress rings
+        gsap.utils.toArray('.progress-ring-circle').forEach((circle) => {
+            let percent = circle.getAttribute('stroke-dashoffset');
+            let percentNum = parseFloat(percent);
+            
+            gsap.to(circle, {
+                strokeDashoffset: percentNum,
+                duration: 1.5,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: circle,
+                    start: 'top 80%',
+                }
+            });
+        });
+
+        // Fade in sections
+        gsap.utils.toArray('section').forEach((section, i) => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                }
+            });
+        });
+
+        // Animate resource cards
+        gsap.utils.toArray('.resource-card').forEach((card) => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, {
+                    y: -10,
+                    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    duration: 0.3
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    y: 0,
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                    duration: 0.3
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Language Tutors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .peer:focus ~ label,.peer:not(:placeholder-shown) ~ label {
+            top: -0.75rem;
+            font-size: 0.875rem;
+            color: #ec4899;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF5F7;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out forwards;
+        }
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-50 to-purple-50">
+    <header class="fixed w-full z-50 bg-white bg-opacity-90 shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo.png" alt="Language Tutors" class="h-8 w-auto">
+            </div>
+            <div class="hidden md:flex space-x-4">
+                <a href="index.html" class="text-gray-800 hover:text-pink-500 transition-colors duration-300">Home</a>
+                <a href="#" class="text-gray-800 hover:text-pink-500 transition-colors duration-300">Courses</a>
+                <a href="#" class="text-gray-800 hover:text-pink-500 transition-colors duration-300">Our Teachers</a>
+                <a href="#" class="text-gray-800 hover:text-pink-500 transition-colors duration-300">About</a>
+                <a href="#" class="text-gray-800 hover:text-pink-500 transition-colors duration-300">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24">
+        <section class="container mx-auto px-6 py-12">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <h1 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6 animate-fade-in-up">Join Our Language Learning Community</h1>
+                    <p class="text-xl text-gray-600 mb-8 animate-fade-in-up">Embark on a journey to master new languages, connect with expert tutors, and open doors to global opportunities.</p>
+                    <div class="flex space-x-4 animate-fade-in-up">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="Student learning" class="w-16 h-16 rounded-full border-2 border-pink-500">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="Group study" class="w-16 h-16 rounded-full border-2 border-pink-500">
+                        <img src="https://images.unsplash.com/photo-1576267423048-15c0040fec78?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="Online learning" class="w-16 h-16 rounded-full border-2 border-pink-500">
+                    </div>
+                    <p class="text-gray-600 mt-4 animate-fade-in-up">Join 10,000+ learners worldwide</p>
+                </div>
+                <div class="lg:w-1/2 bg-white rounded-2xl shadow-2xl p-8 animate-fade-in-up">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-8">Sign Up Now</h2>
+                    <form class="space-y-6">
+                        <div class="flex space-x-4">
+                            <div class="w-1/2 relative">
+                                <input type="text" id="first_name" name="first_name" class="peer w-full h-10 border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-pink-600" placeholder="First Name" required />
+                                <label for="first_name" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-pink-600">First Name</label>
+                            </div>
+                            <div class="w-1/2 relative">
+                                <input type="text" id="last_name" name="last_name" class="peer w-full h-10 border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-pink-600" placeholder="Last Name" required />
+                                <label for="last_name" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-pink-600">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" class="peer w-full h-10 border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-pink-600" placeholder="Email Address" required />
+                            <label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-pink-600">Email Address</label>
+                        </div>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" class="peer w-full h-10 border-b-2 border-gray-300 text-gray-900 placeholder-transparent focus:outline-none focus:border-pink-600" placeholder="Password" required />
+                            <label for="password" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-pink-600">Password</label>
+                        </div>
+                        <div class="relative">
+                            <select id="language" name="language" class="peer w-full h-10 border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-pink-600 bg-transparent" required>
+                                <option value="" disabled selected></option>
+                                <option value="english">English</option>
+                                <option value="spanish">Spanish</option>
+                                <option value="french">French</option>
+                                <option value="german">German</option>
+                                <option value="mandarin">Mandarin</option>
+                            </select>
+                            <label for="language" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-pink-600">Preferred Language</label>
+                        </div>
+                        <div class="flex items-center mt-4">
+                            <input type="checkbox" id="terms" name="terms" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
+                            <label for="terms" class="ml-2 block text-sm text-gray-700">
+                                I agree to the <a href="#" class="text-pink-600 hover:text-pink-700">Terms and Conditions</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="w-full bg-pink-600 text-white px-6 py-3 rounded-full hover:bg-pink-700 transition-colors duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 mt-6">
+                            Create Account
+                        </button>
+                    </form>
+                    <p class="text-center mt-6 text-gray-600">
+                        Already have an account? <a href="login.html" class="text-pink-600 hover:text-pink-700 font-semibold">Log in here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Why Choose Language Tutors?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-pink-50 rounded-xl p-6 shadow-md animate-fade-in-up">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=300&q=80" alt="Expert Tutors" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Expert Tutors</h3>
+                        <p class="text-gray-600">Learn from certified language instructors with years of experience in teaching and native-level proficiency.</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-6 shadow-md animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=300&q=80" alt="Flexible Learning" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Flexible Learning</h3>
+                        <p class="text-gray-600">Choose from a variety of scheduling options to fit your busy lifestyle. Learn anytime, anywhere.</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-6 shadow-md animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <img src="https://images.unsplash.com/photo-1576267423048-15c0040fec78?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=300&q=80" alt="Interactive Platform" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Interactive Platform</h3>
+                        <p class="text-gray-600">Engage with our cutting-edge learning tools, including live video sessions, interactive exercises, and progress tracking.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-4">Language Tutors</h3>
+                    <p class="text-gray-400">Empowering global communication through personalized language education.</p>
+                </div>
+                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                    <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">Courses</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">Tutors</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                    <h4 class="text-xl font-semibold mb-4">Contact Us</h4>
+                    <p class="text-gray-400">123 Language Street<br>Linguacity, LN 12345<br>contact@languagetutors.com</p>
+                </div>
+                <div class="w-full md:w-1/4">
+                    <h4 class="text-xl font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Language Tutors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".animate-fade-in-up", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "main",
+                start: "top 80%",
+            }
+        });
+
+        gsap.from(".grid > div", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: ".grid",
+                start: "top 80%",
+            }
+        });
+    </script>
+</body>
+</html>
